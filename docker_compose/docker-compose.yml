@@ -27,8 +27,11 @@ services:
       - APP_POSTGRES_PORT=5432
       - APP_REDIS_HOST=redis_host
       - APP_REDIS_PORT=6379
+      - APP_PGDATA_HOST=pgdata_host
+      - APP_PGDATA_PORT=****
     volumes:
       - /tmp/data:/data
+      - /var/lib:/var/lib/postgresql/data/pg_data
     links: [mongo_host, postgres_host, redis_host]
   flask-app:
     build:
